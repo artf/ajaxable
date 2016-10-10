@@ -1,14 +1,49 @@
 {
   "name": "ajaxable",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Enable instantly promisable AJAX forms",
+  "main": "dist/ajaxable.min.js",
+  "homepage": "https://github.com/artf/ajaxable",
   "author": "Artur Arseniev",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artf/ajaxable/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artf/ajaxable.git"
+  },
+  "keywords": [
+    "form",
+    "ajax",
+    "promise"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
+    "test:dev": "mocha --compilers js:babel-core/register --recursive -R min -w ./test/*.js",
+    "build": "WEBPACK_ENV=prod && npm run test && webpack && npm run build:doc",
+    "build:doc": "documentation build src/main.js -o ./docs -f html",
+    "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-core/register --recursive -R spec ./test/*.js",
+    "start": "WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors"
+  },
   "dependencies": {
+    "eslint": "^3.7.1",
     "tiny-emitter": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.1.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }
