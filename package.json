@@ -1,11 +1,14 @@
 {
   "name": "ajaxable",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Artur Arseniev",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "tiny-emitter": "^1.1.0"
+  }
 }
