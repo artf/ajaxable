@@ -1,3 +1,3 @@
 import Ajaxable from './Ajaxable';
 
-module.exports = (el, clb) => new Ajaxable(el, clb);
+module.exports = (el, opt) => new Ajaxable(el, opt);
