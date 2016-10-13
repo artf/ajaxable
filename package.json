@@ -1,6 +1,6 @@
 {
   "name": "ajaxable",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Enable instantly promisable AJAX forms",
   "main": "dist/ajaxable.min.js",
   "homepage": "https://github.com/artf/ajaxable",
