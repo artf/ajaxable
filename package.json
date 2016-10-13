@@ -1,6 +1,6 @@
 {
   "name": "ajaxable",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Enable instantly promisable AJAX forms",
   "main": "dist/ajaxable.min.js",
   "homepage": "https://github.com/artf/ajaxable",
@@ -28,7 +28,7 @@
     "lint": "eslint src",
     "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
     "test:dev": "mocha --compilers js:babel-core/register --recursive -R min -w ./test/*.js",
-    "build": "WEBPACK_ENV=prod && npm run test && webpack",
+    "build": "WEBPACK_ENV=prod && npm run test && webpack && npm version --no-git-tag-version patch",
     "build:doc": "documentation build src/main.js -o ./docs -f html",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-core/register --recursive -R spec ./test/*.js",
     "start": "WEBPACK_ENV=dev webpack-dev-server --progress --colors"
