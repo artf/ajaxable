@@ -17,7 +17,7 @@ class Ajaxable extends EventEmitter{
       responseType: 'json',
     };
 
-    let opts = opts || {};
+    let opts = options || {};
     for (var name in defaults) {
       if (!(name in opts))
         opts[name] = defaults[name];
@@ -87,10 +87,10 @@ class Ajaxable extends EventEmitter{
         this.emit('error', err, params);
         return;
       }
-      this.emit('success', response, params);
+      this.emit('response', response, params);
     });
     req.addEventListener("error", (e) =>
-      this.emit('error', req.responseText, params)
+      this.emit('error', e, params)
     );
     req.addEventListener("loadend", (e) => {
       this._ar--;
