@@ -2,6 +2,7 @@
 *.log
 .eslintrc
 index.html
+docs.md
 
 private/
 coverage/

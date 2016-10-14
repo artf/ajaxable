@@ -1,7 +1,7 @@
 {
   "name": "ajaxable",
-  "version": "0.0.8",
-  "description": "Enable instantly promisable AJAX forms",
+  "version": "0.1.0",
+  "description": "Make your form instantly ajaxable",
   "main": "dist/ajaxable.min.js",
   "homepage": "https://github.com/artf/ajaxable",
   "author": "Artur Arseniev",
@@ -29,7 +29,7 @@
     "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
     "test:dev": "mocha --compilers js:babel-core/register --recursive -R min -w ./test/*.js",
     "build": "WEBPACK_ENV=prod && npm run test && webpack && npm version --no-git-tag-version patch",
-    "build:doc": "documentation build src/main.js -o ./docs -f html",
+    "build:doc": "documentation build src/index.js -o ./docs.md -f md",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-core/register --recursive -R spec ./test/*.js",
     "start": "WEBPACK_ENV=dev webpack-dev-server --progress --colors"
   },
@@ -41,6 +41,7 @@
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
+    "documentation": "^4.0.0-beta11",
     "eslint": "^3.7.1",
     "expect": "^1.20.2",
     "mocha": "^3.1.1",

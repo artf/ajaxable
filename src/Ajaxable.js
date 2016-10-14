@@ -3,9 +3,15 @@ import EventEmitter from 'tiny-emitter';
 class Ajaxable extends EventEmitter{
 
   /**
-   * Constructor
+   * Init the form by providing the element, it can be either HTML selector or the form element (HTMLFormElement).
+   * The options are optional and could contain:
+   * `responseType` - Define the response type, eg. `json`(default), `blob`, `arraybuffer`, leave empty if undefined
    * @param {string|HTMLFormElement} el
    * @param {Object} [options] Options
+   * @example
+   * ajaxable('form.ajaxable', {
+   *  responseType: '',
+   * });
    */
   constructor(el, options = '') {
     super();
@@ -28,6 +34,69 @@ class Ajaxable extends EventEmitter{
 
     for (let i = 0; i < this.els.length; i++) {
       this.bindForm(this.els[i]);
+    }
+  }
+
+  /**
+   * Bind a callback and execute it on start of each request
+   * The callback accepts parameters object as argument
+   * @param {Function} clb Callback function
+   * @example
+   * ajaxable('...').onStart((params) => {
+   *  // do stuff
+   * })
+   */
+  onStart(clb){
+    return this.on('start', clb);
+  }
+
+  /**
+   * Bind a callback and execute it on end of each request
+   * The callback accepts parameters object as argument
+   * @param {Function} clb Callback function
+   * @example
+   * ajaxable('...').onEnd((params) => {
+   *  // do stuff
+   * })
+   */
+  onEnd(clb){
+    return this.on('end', clb);
+  }
+
+  /**
+   * Bind a callback and execute it on response of each request
+   * The callback accepts the response and parameters as arguments
+   * @param {Function} clb Callback function
+   * @example
+   * ajaxable('...').onResponse((res, params) => {
+   *  // do stuff
+   * })
+   */
+  onResponse(clb){
+    return this.on('response', clb);
+  }
+
+  /**
+   * Bind a callback and execute it on error of each request
+   * The callback accepts the error and parameters as arguments
+   * @param {Function} clb Callback function
+   * @example
+   * ajaxable('...').onError((err, params) => {
+   *  // do stuff
+   * })
+   */
+  onError(clb){
+    return this.on('error', clb);
+  }
+
+  /**
+   * Submit the request
+   * @example
+   * ajaxable('...').submit();
+   */
+  submit() {
+    for (let i = 0; i < this.els.length; i++) {
+      this.els[i].dispatchEvent(new Event('submit'));
     }
   }
 
@@ -58,7 +127,17 @@ class Ajaxable extends EventEmitter{
       if(el.checkValidity()){
   			e.preventDefault();
   			this.sendForm(el);
-  		}
+  		}else{
+        throw new Error('Validation failed');
+        /*
+        // If I need to submit form programmatically and trigger
+        // HTML5 Validation .submit() doesn't work, it's necessary to .click()
+        // on submitable element.
+        // Solution: As some forms could not have a submit button I need to create
+        // one, hide it and execute .click()
+        el.querySelector('button').click();
+        */
+      }
   	};
     this.removeListeners(el, ev);
     this.addListener(el, ev, checkForm);
