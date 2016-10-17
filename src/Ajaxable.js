@@ -25,13 +25,19 @@ class Ajaxable extends EventEmitter{
     // Default options
     const defaults = {
       responseType: 'json',
+      headers: {},
     };
 
     let opts = options || {};
-    for (var name in defaults) {
+    for (let name in defaults) {
       if (!(name in opts))
         opts[name] = defaults[name];
     }
+
+    // Set default X-Requested-With if not setted
+    const reqHead = 'X-Requested-With';
+    if(opts.headers[reqHead] != '')
+      opts.headers[reqHead] = 'XMLHttpRequest';
 
     this.els = this.parseEl(el);
     this.opts = opts;
@@ -155,8 +161,14 @@ class Ajaxable extends EventEmitter{
   sendForm(el) {
     const formData = this.fetchData(el);
     let req = new XMLHttpRequest();
+    let headers = this.opts.headers;
     this._ar++;
-    let params = {el, req, activeRequests: this._ar};
+    let params = {
+      el,
+      req,
+      activeRequests: this._ar,
+      requestData: this.fetchFormData(formData)
+    };
     this.emit('start', params);
     req.addEventListener("progress", (e) =>
       this.emit('progress', e, el, req)
@@ -180,8 +192,13 @@ class Ajaxable extends EventEmitter{
       params.activeRequests = this._ar;
       this.emit('end', params)
     });
-    // TODO req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     req.open(el.method, el.action);
+
+    // Set headers
+    for (let head in headers){
+      req.setRequestHeader(head, headers[head]);
+    }
+
     req.send(formData);
   }
 
@@ -195,6 +212,22 @@ class Ajaxable extends EventEmitter{
     this.checkForm(el);
   	let formData = new window.FormData(el);
     return formData;
+  }
+
+  /**
+   * Fetch data from the FormData object
+   * @param {FormData} fd
+   * @return {Object}
+   * @private
+   */
+  fetchFormData(fd) {
+    let obj = {};
+    if(fd.entries){
+      for(let pair of fd.entries()) {
+        obj[pair[0]] = pair[1];
+      }
+    }
+    return obj;
   }
 
   /**
@@ -235,7 +268,7 @@ class Ajaxable extends EventEmitter{
       let handlers = this._eh[node];
         if(event in handlers) {
           let eventHandlers = handlers[event];
-            for(var i = eventHandlers.length; i--;) {
+            for(let i = eventHandlers.length; i--;) {
               let handler = eventHandlers[i];
               node.removeEventListener(event, handler);
             }
