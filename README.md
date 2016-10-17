@@ -1,6 +1,7 @@
 # Ajaxable
 
 [![Build Status](https://travis-ci.org/artf/ajaxable.svg?branch=master)](https://travis-ci.org/artf/ajaxable)
+[![Coverage Status](https://coveralls.io/repos/github/artf/ajaxable/badge.svg?branch=master)](https://coveralls.io/github/artf/ajaxable?branch=master)
 
 This library simply takes the standard HTML forms as an input and make them send requests via AJAX keeping HTML5 validations.
 
