@@ -5,12 +5,16 @@ class Ajaxable extends EventEmitter{
   /**
    * Init the form by providing the element, it can be either HTML selector or the form element (HTMLFormElement).
    * The options are optional and could contain:
-   * `responseType` - Define the response type, eg. `json`(default), `blob`, `arraybuffer`, leave empty if undefined
    * @param {string|HTMLFormElement} el
    * @param {Object} [options] Options
+   * @param {string} [options.responseType] Define the response type, eg. `json`(default), `blob`, `arraybuffer`, leave empty if undefined
+   * @param {Object} [options.headers] Define custom headers
    * @example
    * ajaxable('form.ajaxable', {
    *  responseType: '',
+   *  headers: {
+   *    'Content-Type': 'text/html; charset=UTF-8'
+   *  }
    * });
    */
   constructor(el, options = '') {
@@ -96,7 +100,7 @@ class Ajaxable extends EventEmitter{
    */
   submit() {
     for (let i = 0; i < this.els.length; i++) {
-      this.els[i].dispatchEvent(new Event('submit'));
+      this.els[i].dispatchEvent(new window.Event('submit'));
     }
   }
 
@@ -176,6 +180,7 @@ class Ajaxable extends EventEmitter{
       params.activeRequests = this._ar;
       this.emit('end', params)
     });
+    // TODO req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     req.open(el.method, el.action);
     req.send(formData);
   }
@@ -188,7 +193,7 @@ class Ajaxable extends EventEmitter{
    */
   fetchData(el) {
     this.checkForm(el);
-  	let formData = new FormData(el);
+  	let formData = new window.FormData(el);
     return formData;
   }
 
@@ -198,7 +203,7 @@ class Ajaxable extends EventEmitter{
    * @private
    */
   checkForm(el) {
-    if(!el || !(el instanceof HTMLFormElement)){
+    if(!el || !(el instanceof window.HTMLFormElement)){
       throw new Error('The element is not a valid form');
     }
   }

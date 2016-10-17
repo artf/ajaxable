@@ -26,11 +26,11 @@
   ],
   "scripts": {
     "lint": "eslint src",
-    "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
-    "test:dev": "mocha --compilers js:babel-core/register --recursive -R min -w ./test/*.js",
+    "test": "mocha --compilers js:babel-core/register --require ./test/helper.js --recursive ./test/*.js",
+    "test:dev": "npm test -- -R min -w",
     "build": "WEBPACK_ENV=prod && npm run test && webpack && npm version --no-git-tag-version patch",
     "build:doc": "documentation build src/index.js -o ./docs.md -f md",
-    "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-core/register --recursive -R spec ./test/*.js",
+    "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-core/register  --require ./test/helper.js --recursive -R spec ./test/*.js",
     "start": "WEBPACK_ENV=dev webpack-dev-server --progress --colors"
   },
   "dependencies": {
@@ -44,7 +44,10 @@
     "documentation": "^4.0.0-beta11",
     "eslint": "^3.7.1",
     "expect": "^1.20.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "jsdom": "^9.8.0",
     "mocha": "^3.1.1",
+    "sinon": "^1.17.6",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }
