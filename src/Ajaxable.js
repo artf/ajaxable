@@ -4,7 +4,6 @@ class Ajaxable extends EventEmitter{
 
   /**
    * Init the form by providing the element, it can be either HTML selector or the form element (HTMLFormElement).
-   * The options are optional and could contain:
    * @param {string|HTMLFormElement} el
    * @param {Object} [options] Options
    * @param {string} [options.responseType] Define the response type, eg. `json`(default), `blob`, `arraybuffer`, leave empty if undefined

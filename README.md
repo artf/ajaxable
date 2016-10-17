@@ -1,11 +1,11 @@
 # Ajaxable
 
-Make your form instantly ajaxable. This library simply takes the standard HTML form as an input and make it send requests via AJAX keeping HTML5 validations.
+This library simply takes the standard HTML forms as an input and make them send requests via AJAX keeping HTML5 validations.
 
 
 ## Installation
 
-Download the file from [here](https://cdn.rawgit.com/artf/ajaxable/master/dist/ajaxable.min.js) or get it directly from the `/dist` folder
+Download the file from [here](https://cdn.rawgit.com/artf/ajaxable/master/dist/ajaxable.min.js), via `npm i ajaxable` or get it directly from the `/dist` folder
 
 
 ## Usage
@@ -76,102 +76,7 @@ $ npm run build
 
 ## API
 
-# constructor
-
-Init the form by providing the element, it can be either HTML selector or the form element (HTMLFormElement).
-The options are optional and could contain:
-`responseType` - Define the response type, eg. `json`(default), `blob`, `arraybuffer`, leave empty if undefined
-
-**Parameters**
-
--   `el` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement))**
--   `options` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Options
-
-**Examples**
-
-```javascript
-ajaxable('form.ajaxable', {
- responseType: '',
-});
-```
-
-# onStart
-
-Bind a callback and execute it on start of each request
-The callback accepts parameters object as argument
-
-**Parameters**
-
--   `clb` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Callback function
-
-**Examples**
-
-```javascript
-ajaxable('...').onStart((params) => {
- // do stuff
-})
-```
-
-# onEnd
-
-Bind a callback and execute it on end of each request
-The callback accepts parameters object as argument
-
-**Parameters**
-
--   `clb` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Callback function
-
-**Examples**
-
-```javascript
-ajaxable('...').onEnd((params) => {
- // do stuff
-})
-```
-
-# onResponse
-
-Bind a callback and execute it on response of each request
-The callback accepts the response and parameters as arguments
-
-**Parameters**
-
--   `clb` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Callback function
-
-**Examples**
-
-```javascript
-ajaxable('...').onResponse((res, params) => {
- // do stuff
-})
-```
-
-# onError
-
-Bind a callback and execute it on error of each request
-The callback accepts the error and parameters as arguments
-
-**Parameters**
-
--   `clb` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Callback function
-
-**Examples**
-
-```javascript
-ajaxable('...').onError((err, params) => {
- // do stuff
-})
-```
-
-# submit
-
-Submit the request
-
-**Examples**
-
-```javascript
-ajaxable('...').submit();
-```
+[API Reference here](./docs/API.md)
 
 
 ## Testing
