@@ -1,5 +1,14 @@
+html {
+  font-size: 16px;
+}
+
 body {
   font-weight: 300;
+  font-size: 1rem;
+}
+
+h1 {
+  font-weight: lighter;
 }
 
 .no-select {
@@ -12,6 +21,19 @@ body {
   background-color: #20b971;
 }
 
+.btn-primary,
+.btn-primary:hover {
+  background-color: #20b971;
+}
+
+.bg-sec {
+  background-color: #49c6e5;
+}
+
+.bg-thr {
+  background-color: #3ad38b; /* 8bd7d2 */
+}
+
 .project-name {
   font-family: "Changa One", cursive;
   font-size: 10em;
@@ -22,19 +44,88 @@ body {
   cursor: default;
 }
 
+.page-header {
+  perspective: 900px;
+}
+
 .page-header a,
 .project-name span {
   pointer-events: all;
+}
+
+.page-header .btn {
+  min-width: 175px;
+  transition: all 0.3s ease-out 0s;
+  transform: rotateX(50deg);
+  border-bottom-width: 5px;
+}
+
+.page-header .btn:hover {
+  transform: rotateY(0);
+  border-bottom-width: 2px;
 }
 
 .project-tagline {
   font-size: 1.5em;
   margin-top: -25px;
   font-weight: lighter;
+  opacity: 0.9;
 }
 
 .btn {
   background-color: transparent;
   border: 2px solid #fff;
   color: #fff;
+}
+
+.form-comp {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 300px;
+}
+
+.comp-before,
+.comp-after {
+  padding: 30px;
+}
+
+.compare label {
+  color: white;
+  font-size: 0.9em;
+  line-height: 1.3rem;
+}
+
+.form-input,
+.form-select,
+.form-select:not([multiple]) {
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  height: 2rem;
+}
+
+.form-select:not([multiple]) {
+  padding-right: 2.4rem;
+}
+
+.compare .form-input,
+.compare .form-select {
+  border: medium none;
+}
+
+.form-group:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+form .btn {
+  padding: 0.3rem 1rem;
+}
+
+.form-comp .btn {
+  width: 100%;
+}
+
+.compare .desc {
+  color: white;
+  text-align: center;
 }
