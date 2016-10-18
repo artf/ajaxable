@@ -1,0 +1,40 @@
+body {
+  font-weight: 300;
+}
+
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+#pjs-sect {
+  background-color: #20b971;
+}
+
+.project-name {
+  font-family: "Changa One", cursive;
+  font-size: 10em;
+  font-weight: normal;
+}
+
+.project-name span {
+  cursor: default;
+}
+
+.page-header a,
+.project-name span {
+  pointer-events: all;
+}
+
+.project-tagline {
+  font-size: 1.5em;
+  margin-top: -25px;
+  font-weight: lighter;
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}

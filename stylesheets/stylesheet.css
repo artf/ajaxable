@@ -55,9 +55,12 @@ a {
 
 .page-header {
   color: #fff;
+  position: absolute;
   text-align: center;
-  background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957); }
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+}
 
 @media screen and (min-width: 64em) {
   .page-header {

@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <title>Ajaxable by artf</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Changa+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <script src="./js/particle.min.js"></script>
   </head>
   <body>
+    <section id="pjs-sect"></section>
     <section class="page-header">
-      <h1 class="project-name">Ajaxable</h1>
+      <h1 class="project-name">
+        <span class="no-select">AJAXABLE</span>
+      </h1>
       <h2 class="project-tagline">Make your forms instantly ajaxable</h2>
-      <a href="https://github.com/artf/ajaxable" class="btn">View on GitHub</a>
-      <a href="https://github.com/artf/ajaxable/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/artf/ajaxable/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/artf/ajaxable" target="_blank" class="btn">View on GitHub</a>
+      <a href="https://raw.githubusercontent.com/artf/ajaxable/master/dist/ajaxable.min.js" target="_blank" class="btn" download="ajaxable.min.js">Download</a>
     </section>
 
     <section class="main-content">
@@ -121,6 +126,10 @@ $ <span class="pl-c1">cd</span> ajaxable</pre></div>
 
     </section>
 
-  
+    <script>
+    particlesJS.load('pjs-sect', './js/particlesjs-config.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+    </script>
   </body>
 </html>
