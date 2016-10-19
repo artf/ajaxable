@@ -23,7 +23,7 @@
             <span><code>ajaxable('#myform')</code></span>
           </div>
           <br/>
-          <form action="#forms" id="myform" class="form-comp form-comp-before">
+          <form action="end-ajaxable.html" id="myform" class="form-comp form-comp-before">
               <div class="form-group">
                   <label class="form-label" for="input-example-1">Name</label>
                   <input class="form-input" id="input-example-1" placeholder="Name" type="text">
@@ -43,5 +43,43 @@
         </div>
       </div>
     </section>
+
+    <div class="modal modal-sm" id="modalEl">
+      <div class="modal-overlay" onclick="hideModal()"></div>
+      <div class="modal-container">
+          <div class="modal-header">
+              <button class="btn btn-clear float-right" onclick="hideModal()"></button>
+              <div class="modal-title">Response</div>
+          </div>
+          <div class="modal-body">
+              <div class="content" id="modal-content">
+                Done!
+              </div>
+          </div>
+          <!--
+          <div class="modal-footer">
+              <button class="btn btn-link">Close</button>
+              <button class="btn btn-primary">Share</button>
+          </div>
+          -->
+      </div>
+    </div>
+
+    <script>
+      var modal = document.getElementById('modalEl');
+      var modalBody = document.getElementById('modal-content');
+      var hideModal = function() {
+        modal.className = 'modal modal-sm';
+      };
+      var showModal = function(body) {
+        modal.className = 'modal active modal-sm';
+        modalBody.innerHTML = body || '';
+      };
+
+      ajaxable('#myform', {responseType: ''})
+      .onResponse(function(res) {
+        showModal(res);
+      });
+    </script>
   </body>
 </html>

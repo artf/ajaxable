@@ -17,6 +17,26 @@ h1 {
   -webkit-user-select: none;
 }
 
+.modal-container .modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+}
+
+.btn.btn-clear {
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  color: #666;
+  height: 2rem;
+  margin-left: 0.3rem;
+  opacity: 0.45;
+  padding: 0;
+}
+
+.btn.btn-clear::before {
+  content: "×";
+  font-size: 2rem;
+}
+
 .over-hidd {
   overflow: hidden;
 }
@@ -28,6 +48,8 @@ h1 {
 
 #pjs-sect {
   min-height: 550px;
+  background: -webkit-linear-gradient(-45deg, #20b971, #09a25a); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg, #20b971, #09a25a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .btn-primary,
