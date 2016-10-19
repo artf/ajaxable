@@ -11,6 +11,11 @@ h1 {
   font-weight: lighter;
 }
 
+.width-all {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .no-select {
   user-select: none;
   -moz-user-select: none;
@@ -185,4 +190,31 @@ form .btn {
 .multip .desc {
   color: white;
   text-align: center;
+}
+
+.multi-cont {
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+.multi-cont .column {
+  padding: 3rem 1rem;
+}
+
+.multip .cell1 {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.multip .cell2 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.multip .cell3 {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.multip .cell4 {
+  background-color: rgba(0, 0, 0, 0.09);
 }
