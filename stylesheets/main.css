@@ -17,8 +17,17 @@ h1 {
   -webkit-user-select: none;
 }
 
-#pjs-sect {
+.over-hidd {
+  overflow: hidden;
+}
+
+#pjs-sect,
+.bg-prim {
   background-color: #20b971;
+}
+
+#pjs-sect {
+  min-height: 550px;
 }
 
 .btn-primary,
@@ -34,8 +43,12 @@ h1 {
   background-color: #3ad38b; /* 8bd7d2 */
 }
 
+.bg-f {
+  background-color: #8bd7d2;
+}
+
 .project-name {
-  font-family: "Changa One", cursive;
+  font-family: "Changa One", Helvetica;
   font-size: 10em;
   font-weight: normal;
 }
@@ -58,11 +71,15 @@ h1 {
   transition: all 0.3s ease-out 0s;
   transform: rotateX(50deg);
   border-bottom-width: 5px;
+
+  /* border-top-width: 1px; */
 }
 
 .page-header .btn:hover {
   transform: rotateY(0);
   border-bottom-width: 2px;
+
+  /* border-top-width: 2px; */
 }
 
 .project-tagline {
@@ -84,9 +101,26 @@ h1 {
   min-width: 300px;
 }
 
+.demo-sect h1 {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 2.5em;
+}
+
+.compare iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .comp-before,
 .comp-after {
-  padding: 30px;
+  min-height: 600px;
+}
+
+.comp-before,
+.comp-after,
+.multip {
+  padding: 30px 30px 50px;
 }
 
 .compare label {
@@ -125,7 +159,8 @@ form .btn {
   width: 100%;
 }
 
-.compare .desc {
+.compare .desc,
+.multip .desc {
   color: white;
   text-align: center;
 }

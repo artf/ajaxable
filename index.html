@@ -32,161 +32,130 @@
 
     <section class="compare container">
       <div class="columns">
-        <div class="column col-6 comp-before bg-sec col-md-12">
-          <div class="desc">
-            <h1>Old-fashion form</h1>
-          </div>
-          <br/>
-          <form action="#forms" class="form-comp form-comp-before">
-              <div class="form-group">
-                  <label class="form-label" for="input-example-1">Name</label>
-                  <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-              </div>
-              <div class="form-group">
-                  <label class="form-label" for="input-example-2">Email</label>
-                  <input class="form-input" id="input-example-2" placeholder="Email" type="email">
-              </div>
-              <div class="form-group">
-                  <label class="form-label" for="input-example-3">Message</label>
-                  <textarea class="form-input" id="input-example-3" placeholder="Textarea" rows="3"></textarea>
-              </div>
-              <div class="form-group">
-                  <button class="btn btn-primary" type="submit">Submit</button>
-              </div>
-          </form>
+        <div class="column col-6 comp-before bg-sec col-md-12 demo-sect" style="padding: 0">
+          <iframe src="comp-old.html"></iframe>
         </div>
 
-        <div class="column col-6 comp-after col-md-12 bg-thr">
-          <div class="desc">
-            <h1>Ajaxable form</h1>
-          </div>
-          <br/>
-          <form action="#forms" class="form-comp form-comp-before">
-              <div class="form-group">
-                  <label class="form-label" for="input-example-1">Name</label>
-                  <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-              </div>
-              <div class="form-group">
-                  <label class="form-label" for="input-example-2">Email</label>
-                  <input class="form-input" id="input-example-2" placeholder="Email" type="email">
-              </div>
-              <div class="form-group">
-                  <label class="form-label" for="input-example-3">Message</label>
-                  <textarea class="form-input" id="input-example-3" placeholder="Textarea" rows="3"></textarea>
-              </div>
-              <div class="form-group">
-                  <button class="btn btn-primary" type="submit">Submit</button>
-              </div>
-          </form>
+        <div class="column col-6 comp-after col-md-12 bg-thr demo-sect" style="padding: 0">
+          <iframe src="comp-new.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="multip container bg-f demo-sect">
+      <div class="desc">
+        <h1>Multiple instances</h1>
+      </div>
+      <div class="columns">
+        <div class="column col-12">
+
         </div>
       </div>
     </section>
 
     <section class="main-content">
       <h1>
-<a id="ajaxable" class="anchor" href="#ajaxable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ajaxable</h1>
+        <a id="ajaxable" class="anchor" href="#ajaxable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ajaxable</h1>
 
-<p><a href="https://travis-ci.org/artf/ajaxable"><img src="https://travis-ci.org/artf/ajaxable.svg?branch=master" alt="Build Status"></a>
-<a href="https://coveralls.io/github/artf/ajaxable?branch=master"><img src="https://coveralls.io/repos/github/artf/ajaxable/badge.svg?branch=master" alt="Coverage Status"></a></p>
+        <p><a href="https://travis-ci.org/artf/ajaxable"><img src="https://travis-ci.org/artf/ajaxable.svg?branch=master" alt="Build Status"></a>
+        <a href="https://coveralls.io/github/artf/ajaxable?branch=master"><img src="https://coveralls.io/repos/github/artf/ajaxable/badge.svg?branch=master" alt="Coverage Status"></a></p>
 
-<p>This library simply takes the standard HTML forms as an input and make them send requests via AJAX keeping HTML5 validations.</p>
+        <p>This library simply takes the standard HTML forms as an input and make them send requests via AJAX keeping HTML5 validations.</p>
 
-<h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+        <h2>
+        <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>Download the file from <a href="https://cdn.rawgit.com/artf/ajaxable/master/dist/ajaxable.min.js">here</a>, via <code>npm i ajaxable</code> or get it directly from the <code>/dist</code> folder</p>
+        <p>Download the file from <a href="https://cdn.rawgit.com/artf/ajaxable/master/dist/ajaxable.min.js">here</a>, via <code>npm i ajaxable</code> or get it directly from the <code>/dist</code> folder</p>
 
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+        <h2>
+        <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Basic</p>
+        <p>Basic</p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>path/to/ajaxable.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>path/to/ajaxable.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 
-&lt;<span class="pl-ent">form</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>myform<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>POST<span class="pl-pds">"</span></span> <span class="pl-e">action</span>=<span class="pl-s"><span class="pl-pds">"</span>https://se.nd/it/somewhere<span class="pl-pds">"</span></span>&gt;
-  &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Name<span class="pl-pds">"</span></span>/&gt;
-  &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Email<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">required</span>/&gt;
-  &lt;<span class="pl-ent">button</span>&gt;Send&lt;/<span class="pl-ent">button</span>&gt;
-&lt;/<span class="pl-ent">form</span>&gt;
+        &lt;<span class="pl-ent">form</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>myform<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>POST<span class="pl-pds">"</span></span> <span class="pl-e">action</span>=<span class="pl-s"><span class="pl-pds">"</span>https://se.nd/it/somewhere<span class="pl-pds">"</span></span>&gt;
+          &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Name<span class="pl-pds">"</span></span>/&gt;
+          &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Email<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">required</span>/&gt;
+          &lt;<span class="pl-ent">button</span>&gt;Send&lt;/<span class="pl-ent">button</span>&gt;
+        &lt;/<span class="pl-ent">form</span>&gt;
 
-<span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
-<span class="pl-s1">  <span class="pl-en">ajaxable</span>(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+        <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
+        <span class="pl-s1">  <span class="pl-en">ajaxable</span>(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>);</span>
+        <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 
-<p>Listen events</p>
+        <p>Listen events</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-en">ajaxable</span>(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>)
-.<span class="pl-en">onStart</span>(<span class="pl-k">function</span>(<span class="pl-smi">params</span>) {
-  <span class="pl-c">// Make stuff before each request, eg. start 'loading animation'</span>
-})
-.<span class="pl-en">onEnd</span>(<span class="pl-k">function</span>(<span class="pl-smi">params</span>) {
-  <span class="pl-c">// Make stuff after each request, eg. stop 'loading animation'</span>
-})
-.<span class="pl-en">onResponse</span>(<span class="pl-k">function</span>(<span class="pl-smi">res</span>, <span class="pl-smi">params</span>) {
-  <span class="pl-c">// Make stuff after on response of each request</span>
-})
-.<span class="pl-c1">onError</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">params</span>) {
-  <span class="pl-c">// Make stuff on errors</span>
-});</pre></div>
+        <div class="highlight highlight-source-js"><pre><span class="pl-en">ajaxable</span>(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>)
+        .<span class="pl-en">onStart</span>(<span class="pl-k">function</span>(<span class="pl-smi">params</span>) {
+          <span class="pl-c">// Make stuff before each request, eg. start 'loading animation'</span>
+        })
+        .<span class="pl-en">onEnd</span>(<span class="pl-k">function</span>(<span class="pl-smi">params</span>) {
+          <span class="pl-c">// Make stuff after each request, eg. stop 'loading animation'</span>
+        })
+        .<span class="pl-en">onResponse</span>(<span class="pl-k">function</span>(<span class="pl-smi">res</span>, <span class="pl-smi">params</span>) {
+          <span class="pl-c">// Make stuff after on response of each request</span>
+        })
+        .<span class="pl-c1">onError</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">params</span>) {
+          <span class="pl-c">// Make stuff on errors</span>
+        });</pre></div>
 
-<p>The <code>params</code> argument is an object containing additional data about the specific request. For example, <code>el</code> is the form element which made the request and <code>activeRequests</code> indicates how many requests are still pending (useful with multiple forms)</p>
+        <p>The <code>params</code> argument is an object containing additional data about the specific request. For example, <code>el</code> is the form element which made the request and <code>activeRequests</code> indicates how many requests are still pending (useful with multiple forms)</p>
 
-<h2>
-<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h2>
+        <h2>
+        <a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h2>
 
-<p>Clone the repository and enter inside the folder</p>
+        <p>Clone the repository and enter inside the folder</p>
 
-<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/artf/ajaxable.git
-$ <span class="pl-c1">cd</span> ajaxable</pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/artf/ajaxable.git
+        $ <span class="pl-c1">cd</span> ajaxable</pre></div>
 
-<p>Install it</p>
+        <p>Install it</p>
 
-<div class="highlight highlight-source-shell"><pre>$ npm i</pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ npm i</pre></div>
 
-<p>Start the dev server</p>
+        <p>Start the dev server</p>
 
-<div class="highlight highlight-source-shell"><pre>$ npm start</pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ npm start</pre></div>
 
-<p>Build before the commit. This will also increase the patch level version of the package</p>
+        <p>Build before the commit. This will also increase the patch level version of the package</p>
 
-<div class="highlight highlight-source-shell"><pre>$ npm run build</pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ npm run build</pre></div>
 
-<h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+        <h2>
+        <a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
 
-<p><a href="./docs/API.md">API Reference here</a></p>
+        <p><a href="./docs/API.md">API Reference here</a></p>
 
-<h2>
-<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h2>
+        <h2>
+        <a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h2>
 
-<p>Run tests</p>
+        <p>Run tests</p>
 
-<div class="highlight highlight-source-shell"><pre>$ npm <span class="pl-c1">test</span></pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ npm <span class="pl-c1">test</span></pre></div>
 
-<p>Run and watch tests</p>
+        <p>Run and watch tests</p>
 
-<div class="highlight highlight-source-shell"><pre>$ npm run <span class="pl-c1">test</span>:dev</pre></div>
+        <div class="highlight highlight-source-shell"><pre>$ npm run <span class="pl-c1">test</span>:dev</pre></div>
 
-<h2>
-<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility</h2>
+        <h2>
+        <a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility</h2>
 
-<p>All modern browsers (IE &gt; 9)</p>
+        <p>All modern browsers (IE &gt; 9)</p>
 
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+        <h2>
+        <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
-<p>MIT</p>
+        <p>MIT</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/artf/ajaxable">Ajaxable</a> is maintained by <a href="https://github.com/artf">artf</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
     </section>
 
     <script>
-    particlesJS.load('pjs-sect', './js/particlesjs-config.json');
+      //particlesJS.load('pjs-sect', './js/particlesjs-config.json');
     </script>
     <style>
       .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
