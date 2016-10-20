@@ -4,11 +4,15 @@ html {
 
 body {
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 h1 {
   font-weight: lighter;
+}
+
+a {
+  color: #20b971;
 }
 
 .width-all {
@@ -47,7 +51,8 @@ h1 {
 }
 
 #pjs-sect,
-.bg-prim {
+.bg-prim,
+.btn.bg-prim {
   background-color: #20b971;
 }
 
@@ -55,6 +60,14 @@ h1 {
   min-height: 550px;
   background: -webkit-linear-gradient(-45deg, #20b971, #09a25a); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(-45deg, #20b971, #09a25a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.bg-dark {
+  background-color: #28464b;
+}
+
+.bg-light {
+  background-color: #fffbfa;
 }
 
 .btn-primary,
@@ -76,7 +89,7 @@ h1 {
 
 .project-name {
   font-family: "Changa One", Helvetica;
-  font-size: 10em;
+  font-size: 10rem;
   font-weight: normal;
 }
 
@@ -86,17 +99,23 @@ h1 {
 
 .page-header {
   perspective: 900px;
+  min-height: 900px;
+}
+
+.scroll-link {
+  cursor: pointer;
 }
 
 .page-header a,
-.project-name span {
+.project-name span,
+.scroll-link {
   pointer-events: all;
 }
 
 .page-header .btn {
   min-width: 175px;
   transition: all 0.3s ease-out 0s;
-  transform: rotateX(50deg);
+  transform: rotateX(40deg);
   border-bottom-width: 5px;
 
   /* border-top-width: 1px; */
@@ -110,7 +129,7 @@ h1 {
 }
 
 .project-tagline {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-top: -25px;
   font-weight: lighter;
   opacity: 0.9;
@@ -131,6 +150,7 @@ h1 {
 .demo-sect h1 {
   color: rgba(0, 0, 0, 0.3);
   font-size: 2.5em;
+  margin-top: 0;
 }
 
 .compare iframe {
@@ -146,6 +166,7 @@ h1 {
 
 .comp-before,
 .comp-after,
+.sect-pad,
 .multip {
   padding: 30px 30px 50px;
 }
@@ -217,4 +238,57 @@ form .btn {
 
 .multip .cell4 {
   background-color: rgba(0, 0, 0, 0.09);
+}
+
+.intro {
+  padding: 6em 3em;
+}
+
+.intro-txt {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.intro .lead {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1em;
+}
+
+footer.site-footer {
+  border: none;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-love {
+  color: #f04242;
+}
+
+.outr .btn {
+  min-width: 175px;
+}
+
+.ddown-c {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.ddown-icon-c {
+  margin: 0 auto 10px;
+  width: 110px;
+  line-height: 1.7rem;
+}
+
+#ddown-icon {
+  -moz-osx-font-smoothing: grayscale;
+  pointer-events: none;
+  font-size: 30px;
+  transform: rotate(-90deg);
 }
