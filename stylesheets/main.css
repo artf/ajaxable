@@ -41,6 +41,13 @@ a {
   padding: 0;
 }
 
+.loading::after {
+  border-color: transparent transparent white white;
+  border-radius: 100%;
+  height: 1.3rem;
+  width: 1.3rem;
+}
+
 .btn.btn-clear::before {
   content: "×";
   font-size: 2rem;
@@ -155,7 +162,6 @@ a {
 
 .compare iframe {
   width: 100%;
-  height: 100%;
   border: none;
 }
 
@@ -291,4 +297,10 @@ footer.site-footer {
   pointer-events: none;
   font-size: 30px;
   transform: rotate(-90deg);
+}
+
+.submit-all {
+  background-color: #fffbfa;
+  color: rgba(0, 0, 0, 0.5);
+  min-width: 250px;
 }

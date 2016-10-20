@@ -41,11 +41,11 @@
     <section class="compare container">
       <div class="columns">
         <div class="column col-6 comp-before bg-sec col-md-12 demo-sect" style="padding: 0">
-          <iframe src="comp-old.html"></iframe>
+          <iframe onload="resizeIframe(this)" src="comp-old.html"></iframe>
         </div>
 
         <div class="column col-6 comp-after col-md-12 bg-thr demo-sect" style="padding: 0">
-          <iframe src="comp-new.html"></iframe>
+          <iframe onload="resizeIframe(this)" src="comp-new.html"></iframe>
         </div>
       </div>
     </section>
@@ -61,79 +61,8 @@
       </div>
     </section>
 
-    <section class="compare multip container bg-f demo-sect">
-      <div class="desc">
-        <h1>Multiple instances</h1>
-        <span>Manage easily race condition</span>
-      </div>
-
-      <div class="multi-cont width-all">
-        <div class="columns">
-          <div class="column col-6 cell1">
-            <form action="end-ajaxable.html" id="form-mult1" class="form-comp form-comp-before">
-                <div class="form-group">
-                    <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" required>
-                </div>
-                <div class="form-group">
-                    <button class="btn" type="submit">Submit</button>
-                </div>
-            </form>
-          </div>
-          <div class="column col-6 cell2">
-            <form action="end-ajaxable.html" id="form-mult2" class="form-comp form-comp-before">
-                <div class="form-group">
-                    <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" required>
-                </div>
-                <div class="form-group">
-                    <button class="btn" type="submit">Submit</button>
-                </div>
-            </form>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column col-6 cell3">
-            <form action="end-ajaxable.html" id="form-mult3" class="form-comp form-comp-before">
-                <div class="form-group">
-                    <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" required>
-                </div>
-                <div class="form-group">
-                    <button class="btn" type="submit">Submit</button>
-                </div>
-            </form>
-          </div>
-          <div class="column col-6 cell4">
-            <form action="end-ajaxable.html" id="form-mult4" class="form-comp form-comp-before">
-                <div class="form-group">
-                    <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" required>
-                </div>
-                <div class="form-group">
-                    <button class="btn" type="submit">Submit</button>
-                </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
+    <section class="compare bg-f demo-sect">
+      <iframe onload="resizeIframe(this)" src="comp-multi.html"></iframe>
     </section>
 
     <section class="intro container sect-pad bg-light">
@@ -159,6 +88,13 @@
 
     <script>
       //particlesJS.load('pjs-sect', './js/particlesjs-config.json');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-74284223-3', 'auto');
+      ga('send', 'pageview');
     </script>
     <style>
       .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}

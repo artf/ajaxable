@@ -19,5 +19,8 @@ $(document).ready(function(){
         return false;
     }
   });
-
 })
+
+var resizeIframe = function(iframe) {
+  iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+}
