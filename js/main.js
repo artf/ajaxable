@@ -6,7 +6,7 @@ $(document).ready(function(){
   var $root = $('html, body');
   $header.css('min-height', viewportH);
 
-  if(viewportW > 500){
+  if(viewportW > 670){
     particlesJS.load('pjs-sect', './js/particlesjs-config.json');
   }
 

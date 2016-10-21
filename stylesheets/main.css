@@ -361,7 +361,7 @@ pre.code-multi {
 @media screen and (max-width: 42em) {
   .project-name {
     font-size: 4.5rem;
-    padding: 1em 0 0.5em;
+    padding: 0.5em 0;
   }
 
   code,
