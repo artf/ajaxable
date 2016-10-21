@@ -304,3 +304,22 @@ footer.site-footer {
   color: rgba(0, 0, 0, 0.5);
   min-width: 250px;
 }
+
+#modLoader .modal-container {
+  width: 75px;
+}
+
+#modLoader .loading::after {
+  border-color: transparent transparent white rgba(0, 0, 0, 0.5);
+}
+
+pre.code-multi {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9em;
+  margin: 1em auto 0;
+  padding: 1em;
+  text-align: left;
+  width: 350px;
+}

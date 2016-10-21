@@ -24,14 +24,14 @@
       <div class="multi-cont width-all">
         <div class="columns">
           <div class="column col-6 cell1">
-            <form action="end-ajaxable.html" id="form-mult1" class="form-comp ajaxable2">
+            <form action="end-ajaxable.html" id="form-mult1" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
                     <input class="form-input" id="input-example-1" placeholder="Name" type="text" value="James">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="james@email.com">
+                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="james@email.com" required>
                 </div>
                 <div class="form-group">
                     <button class="btn" type="submit">Submit</button>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="patrick@email.com">
+                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="patrick@email.com" required>
                 </div>
                 <div class="form-group">
                     <button class="btn" type="submit">Submit</button>
@@ -59,11 +59,11 @@
             <form action="end-ajaxable.html" id="form-mult3" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
+                    <input class="form-input" id="input-example-1" placeholder="Name" type="text" value="Jessica">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email">
+                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="jessica@email.com" required>
                 </div>
                 <div class="form-group">
                     <button class="btn" type="submit">Submit</button>
@@ -74,11 +74,11 @@
             <form action="end-ajaxable.html" id="form-mult4" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
-                    <input class="form-input" id="input-example-1" placeholder="Name" type="text">
+                    <input class="form-input" id="input-example-1" placeholder="Name" type="text" value="Kevin">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="input-example-2">Email</label>
-                    <input class="form-input" id="input-example-2" placeholder="Email" type="email">
+                    <input class="form-input" id="input-example-2" placeholder="Email" type="email" value="kevin@email.com" required>
                 </div>
                 <div class="form-group">
                     <button class="btn" type="submit">Submit</button>
@@ -90,6 +90,18 @@
 
       <div class="cont-btn text-center">
         <button class="btn submit-all" id="submit-all">Submit all</button>
+      </div>
+
+      <div class="text-center">
+          <pre class="code-multi">
+ajaxable('.ajaxable')
+.onStart(startLoading)
+.onError(console.err)
+.onResponse((res, par) => {
+  if(par.activeRequests === 0){
+    showModal('All done!');
+  }
+});</pre>
       </div>
     </section>
 
@@ -107,9 +119,19 @@
       </div>
     </div>
 
+    <div class="modal modal-sm" id="modLoader">
+      <div class="modal-overlay"></div>
+      <div class="modal-container">
+          <div class="modal-body">
+              <div class="content loading" id="modal-content"></div>
+          </div>
+      </div>
+    </div>
+
     <script>
       var counterTimer = 0;
       var modal = document.getElementById('modalEl');
+      var modLoader = document.getElementById('modLoader');
       var modalBody = document.getElementById('modal-content');
       var btnAll = document.getElementById('submit-all');
       var hideModal = function() {
@@ -121,27 +143,26 @@
       };
 
       var startLoading = function (params) {
-        console.log('started', params);
+        modLoader.className = 'modal modal-sm active';
         params.el.querySelector('.btn').className = 'btn loading';
       };
 
       var fakedDelay = function (res, params) {
-        console.log('faked', params);
         params.el.querySelector('.btn').className = 'btn';
-        //console.log(params);
         if(params.activeRequests == 0){
-          showModal(res);
+          modLoader.className = 'modal modal-sm';
+          showModal('All done!');
         }
       };
 
-      var ajaxEls = ajaxable('.ajaxable2', {responseType: ''})
+      var ajaxEls = ajaxable('.ajaxable', {responseType: ''})
       .onStart(startLoading)
       .onError(console.err)
       .onResponse(function(res, params) {
-        console.log('Requests: ', params.activeRequests);
+        var active = params.activeRequests;
         setTimeout(function(){
           fakedDelay(res, params);
-        }, 3000);
+        }, active * 1000);
       });
 
       btnAll.onclick = function () {
