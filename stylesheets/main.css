@@ -62,6 +62,13 @@ a {
   overflow: hidden;
 }
 
+.github-corner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
 #pjs-sect,
 .bg-prim,
 .btn.bg-prim {
@@ -72,12 +79,11 @@ a {
   min-height: 550px;
   background: -webkit-linear-gradient(-45deg, #20b971, #09a25a); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(-45deg, #20b971, #09a25a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-#pjs-sect canvas {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .bg-dark {
@@ -109,15 +115,23 @@ a {
   font-family: "Changa One", Helvetica;
   font-size: 10rem;
   font-weight: normal;
+  position: relative;
+  pointer-events: none;
+}
+
+.project-tagline {
+  pointer-events: none;
 }
 
 .project-name span {
   cursor: default;
+  pointer-events: all;
 }
 
 .page-header {
   perspective: 900px;
   min-height: 900px;
+  position: static;
 }
 
 .scroll-link {
