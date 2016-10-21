@@ -105,8 +105,27 @@ class Ajaxable extends EventEmitter{
    */
   submit() {
     for (let i = 0; i < this.els.length; i++) {
-      this.els[i].dispatchEvent(new window.Event('submit'));
+      this.send(this.els[i]);
     }
+  }
+
+  /**
+   * Trigger form submit.
+   * If I need to submit form programmatically and trigger
+   * HTML5 Validation .submit() doesn't work, it's necessary
+   * to 'click()' on a submitable element.
+   * @param {HTMLFormElement} el Form element
+   * @private
+   */
+  send(el) {
+    const id = '_aj_btn';
+    let subEl = el.querySelector('#' + id);
+    if(!subEl){
+      subEl = el.appendChild(document.createElement('button'));
+      subEl.id = id;
+      subEl.style.display = 'none';
+    }
+    subEl.click();
   }
 
   /**
@@ -136,17 +155,7 @@ class Ajaxable extends EventEmitter{
       if(el.checkValidity()){
   			e.preventDefault();
   			this.sendForm(el);
-  		}else{
-        throw new Error('Validation failed');
-        /*
-        // If I need to submit form programmatically and trigger
-        // HTML5 Validation .submit() doesn't work, it's necessary to .click()
-        // on submitable element.
-        // Solution: As some forms could not have a submit button I need to create
-        // one, hide it and execute .click()
-        el.querySelector('button').click();
-        */
-      }
+  		}
   	};
     this.removeListeners(el, ev);
     this.addListener(el, ev, checkForm);

@@ -1,7 +1,7 @@
 .DS_Store
 *.log
 .eslintrc
-index.html
+*.html
 
 private/
 coverage/
