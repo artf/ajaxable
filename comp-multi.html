@@ -23,7 +23,7 @@
 
       <div class="multi-cont width-all">
         <div class="columns">
-          <div class="column col-6 cell1">
+          <div class="column col-6 cell1 col-md-12">
             <form action="end-ajaxable.html" id="form-mult1" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
@@ -38,7 +38,7 @@
                 </div>
             </form>
           </div>
-          <div class="column col-6 cell2">
+          <div class="column col-6 cell2 col-md-12">
             <form action="end-ajaxable.html" id="form-mult2" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="columns">
-          <div class="column col-6 cell3">
+          <div class="column col-6 cell3 col-md-12">
             <form action="end-ajaxable.html" id="form-mult3" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
@@ -70,7 +70,7 @@
                 </div>
             </form>
           </div>
-          <div class="column col-6 cell4">
+          <div class="column col-6 cell4 col-md-12">
             <form action="end-ajaxable.html" id="form-mult4" class="form-comp ajaxable">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Name</label>
@@ -97,7 +97,7 @@
 ajaxable('.ajaxable')
 .onStart(startLoading)
 .onError(console.err)
-.onResponse((res, par) => {
+.onEnd((par) => {
   if(par.activeRequests === 0){
     showModal('All done!');
   }
@@ -110,7 +110,7 @@ ajaxable('.ajaxable')
       <div class="modal-container">
           <div class="modal-header">
               <button class="btn btn-clear float-right" onclick="hideModal()"></button>
-              <div class="modal-title">Response demo</div>
+              <div class="modal-title">Result demo</div>
           </div>
           <div class="modal-body">
               <div class="content" id="modal-content">

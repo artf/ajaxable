@@ -1,8 +1,14 @@
 $(document).ready(function(){
   var $header = $('#page-header, #pjs-sect');
-  var viewportH = $(window).height();
+  var $win = $(window);
+  var viewportH = $win.height();//screen.height
+  var viewportW = $win.width();//screen.width
   var $root = $('html, body');
   $header.css('min-height', viewportH);
+
+  if(viewportW > 500){
+    particlesJS.load('pjs-sect', './js/particlesjs-config.json');
+  }
 
   // highlight.js init
   //$('pre code').each(function(i, block) {
@@ -22,5 +28,5 @@ $(document).ready(function(){
 })
 
 var resizeIframe = function(iframe) {
-  iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+  iframe.style.minHeight = iframe.contentWindow.document.body.scrollHeight + "px";
 }

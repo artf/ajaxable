@@ -48,6 +48,11 @@ a {
   width: 1.3rem;
 }
 
+.tooltip::after {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+}
+
 .btn.btn-clear::before {
   content: "×";
   font-size: 2rem;
@@ -67,6 +72,12 @@ a {
   min-height: 550px;
   background: -webkit-linear-gradient(-45deg, #20b971, #09a25a); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(-45deg, #20b971, #09a25a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#pjs-sect canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .bg-dark {
@@ -151,18 +162,20 @@ a {
 .form-comp {
   margin: 0 auto;
   width: 50%;
-  min-width: 300px;
+  min-width: 259px;
 }
 
 .demo-sect h1 {
   color: rgba(0, 0, 0, 0.3);
-  font-size: 2.5em;
+  font-size: 2.5rem;
   margin-top: 0;
 }
 
 .compare iframe {
   width: 100%;
+  height: 100%;
   border: none;
+  display: block;
 }
 
 .comp-before,
@@ -321,5 +334,42 @@ pre.code-multi {
   margin: 1em auto 0;
   padding: 1em;
   text-align: left;
-  width: 350px;
+  max-width: 350px;
+}
+
+.ddown-sharer {
+  bottom: 3px;
+  left: 20px;
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+.btn-share {
+  color: #fffbfa;
+}
+
+@media screen and (max-width: 64em) {
+  html {
+    font-size: 14px;
+  }
+
+  .multip .form-comp {
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 42em) {
+  .project-name {
+    font-size: 4.5rem;
+    padding: 1em 0 0.5em;
+  }
+
+  code,
+  pre {
+    font-size: 0.7em;
+  }
+
+  pre.code-multi {
+    font-size: 0.7em;
+  }
 }
