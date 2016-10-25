@@ -137,8 +137,9 @@ class Ajaxable extends EventEmitter{
   parseEl(el) {
     if(typeof el === 'string'){
       el = document.querySelectorAll(el);
-    }if(!el.length){
-      el = [el];
+    }if(!el.length ||
+      el instanceof window.HTMLElement){
+        el = [el];
     }
     return el;
   }
@@ -245,7 +246,8 @@ class Ajaxable extends EventEmitter{
    */
   checkForm(el) {
     if(!el || !(el instanceof window.HTMLFormElement)){
-      throw new Error('The element is not a valid form');
+      let name = el.constructor.name;
+      throw new Error(`The element is not a valid form, ${name} given`);
     }
   }
 

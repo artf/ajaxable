@@ -9,7 +9,11 @@ describe('Ajaxable', () => {
 
   beforeEach(() => {
     form = `<form id="form1" class="forms"></form>
-            <form id="form2" class="forms"></form>`;
+            <form id="form2" class="forms"></form>
+            <form id="form3" class="forms">
+              <input name="test-input" />
+              <button></button>
+            </form>`;
     d.body.innerHTML = form;
   });
 
@@ -26,11 +30,16 @@ describe('Ajaxable', () => {
 
   it('Init with string, multiple elements', () => {
     const el = ajaxable('.forms').els;
-    expect(el.length).toEqual(2);
+    expect(el.length).toEqual(3);
   });
 
-  it('Init with the dom', () => {
+  it('Init with the DOM', () => {
     const el = ajaxable(d.getElementById('form1')).els;
+    expect(el.length).toEqual(1);
+  });
+
+  it('Init with the DOM which has children', () => {
+    const el = ajaxable(d.getElementById('form3')).els;
     expect(el.length).toEqual(1);
   });
 
